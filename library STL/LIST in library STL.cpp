@@ -20,7 +20,7 @@ int main()
 	setlocale(LC_ALL, "Russian");
 
 	// Можно создать list сразу c элементами внутри:
-	list<int> practice_list = {634, 297, 120};
+	list<int> practice_list = {634, 11, 11, 297, 11, 120, 11};
 	// А можно просто создать list:
 	//list<int> practice_list;
 
@@ -58,6 +58,12 @@ int main()
 	}
 	cout << endl;
 
+	// Удаление определенных дубликатов из списка:
+	cout << endl << "Удаление определенных дубликатов из списка: " << endl;
+	practice_list.unique();
+
+	print_list(practice_list);
+
 	// Метод для сортировки списка:
 	practice_list.sort();
 
@@ -73,6 +79,61 @@ int main()
 	print_list(practice_list);
 
 	cout << endl << "Количество элементов списка(длинна списка): " 
+		<< practice_list.size() << endl;
+
+	// разные методы списка(list):
+	// unique(); - чуть выше описан для наглядности
+
+
+	auto it_3 = practice_list.begin();
+
+	// advance(a, b); - вставляем итератор а, в позицию b
+	cout << endl << "Числа на месте которых мы вставим наши новые значения:"
+		<< endl;
+	advance(it_3, 1);
+	cout << *it_3 << endl;
+	// далее добавлеяем в эту позицию число тем самым сдвигая вправо лист
+	practice_list.insert(it_3, 12345678);
+
+	advance(it_3, 3);
+	cout << *it_3 << endl;
+	practice_list.insert(it_3, 1892);
+
+	advance(it_3, 2);
+	cout << *it_3 << endl;
+	practice_list.insert(it_3, 101010);
+
+
+	// теперь сравниваем реузльтат:
+	cout << endl;
+	print_list(practice_list);
+
+	cout << endl << "Количество элементов списка(длинна списка): "
+		<< practice_list.size() << endl;
+
+
+	// есть так же еще много методов но есть еще один к примеру удаление элементов:
+	it_2 = it_3;
+	practice_list.erase(--it_3);
+	advance(it_2, -2);
+	practice_list.erase(it_2);
+
+
+
+	// ТУТ ЕСТЬ ОДНО ОСОБЕНОСТЬ, ПОСЛЕ ВЫЗОВА МЕТОДА erase УДАЛЯЕТСЯ И САМ ИТЕРАТОР,
+	// ИБО НА КОМАНДЫ ОН НЕ ОТВЕЧАЕТ И РАБОТАЬ С НИМ НЕ ВОЗМОЖНО, ВСЕГДА ВЫДАЕТ
+	// ОШИБКУ, ПОЭТОМУ ЛЧШУЕ ВСЕГО КОПИРОВАТЬ ОДИН ИТЕРАТОР В ДРУГОЙ ПРИ УДАЛЕНИЕ 
+	// КАКОГО ЛИБО ЭЛЕМЕНТА, ЧТОБЫ НЕ ПОТЕРЯТЬ ИТЕРАТОР
+
+
+
+
+	// теперь сравниваем реузльтат:
+	cout << endl << "Список после удаления пары элементов: " << endl;
+	cout << endl;
+	print_list(practice_list);
+
+	cout << endl << "Количество элементов списка(длинна списка): "
 		<< practice_list.size() << endl;
 
 	return 0;
