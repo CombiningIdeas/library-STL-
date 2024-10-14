@@ -6,3 +6,4 @@ This repository is dedicated to how I got acquainted with the STL standard templ
 
 ----
 
+![STL in C++](https://github.com/user-attachments/assets/d5128ddd-e785-4288-8406-e5a0baca06bc)
